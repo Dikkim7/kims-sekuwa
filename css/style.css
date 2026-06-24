@@ -460,4 +460,135 @@ grid-column:1;
 width:100%;
 right:-100%;
 }
+
+
+
+
+
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+  .navbar{
+    padding:0 20px;
+    height:72px;
+  }
+
+  .brand{
+    font-size:30px;
+  }
+
+  nav{
+    gap:12px;
+  }
+
+  nav a{
+    display:none;
+  }
+
+  .cart-nav{
+    padding:10px 16px;
+    font-size:13px;
+  }
+
+  .hero{
+    height:82vh;
+    background-position:center top;
+  }
+
+  .hero-actions{
+    left:20px;
+    right:20px;
+    bottom:35px;
+    flex-direction:column;
+  }
+
+  .hero-btn{
+    width:100%;
+    text-align:center;
+    padding:15px 20px;
+  }
+
+  .section{
+    padding:70px 20px;
+  }
+
+  .section-title h2{
+    font-size:32px;
+  }
+
+  .menu-grid,
+  .contact-section{
+    grid-template-columns:1fr;
+  }
+
+  .menu-card{
+    min-height:auto;
+  }
+
+  .menu-card img{
+    height:230px;
+  }
+
+  .booking-form,
+  .checkout-form{
+    grid-template-columns:1fr;
+  }
+
+  .booking-form button,
+  .checkout-form button,
+  .checkout-form textarea,
+  .checkout-summary{
+    grid-column:1;
+  }
+
+  .contact-card{
+    padding:25px;
+  }
+
+  .contact-card h2{
+    font-size:30px;
+  }
+
+  .contact-section iframe{
+    height:320px;
+  }
+
+  .cart-drawer{
+    width:100%;
+    right:-100%;
+  }
+
+  footer{
+    padding:25px;
+  }
+}
+
+@media(max-width:480px){
+  .brand{
+    font-size:24px;
+  }
+
+  .cart-nav{
+    padding:9px 13px;
+    font-size:12px;
+  }
+
+  .hero{
+    height:78vh;
+    background-position:center top;
+  }
+
+  .section-title h2{
+    font-size:28px;
+  }
+
+  .menu-content h3{
+    font-size:21px;
+  }
+
+  .menu-content p{
+    font-size:13px;
+  }
 }
