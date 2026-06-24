@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>KIM'S Sekuwa | Golfutar Kathmandu</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="#home" class="brand">KIM'S</a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#booking">Booking</a>
+    <a href="#contact">Contact</a>
+    <button class="cart-nav" onclick="toggleCart()">Cart <span id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-actions">
+    <a href="#menu" class="hero-btn red">Order Now</a>
+    <a href="#booking" class="hero-btn outline">Book Table</a>
+  </div>
+</section>
+
+<section class="section menu-section" id="menu">
+  <div class="section-title">
+    <p>Fresh From The Fire</p>
+    <h2>Signature Sekuwa</h2>
+  </div>
+
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <img src="images/pork-sekuwa.jpg" alt="Pork Sekuwa">
+      <div class="menu-content">
+        <h3>Pork Sekuwa</h3>
+        <p>Smoky pork sekuwa grilled over open fire and served with our homemade achaar.</p>
+
+        <select id="porkOption">
+          <option value="350">Plate - Rs. 350</option>
+          <option value="650">Half Kilo - Rs. 650</option>
+          <option value="1200">One Kilo - Rs. 1200</option>
+        </select>
+
+        <button onclick="addSelectedItem('Pork Sekuwa', 'porkOption')">Add To Cart</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="images/buff-sekuwa.jpg" alt="Buff Sekuwa">
+      <div class="menu-content">
+        <h3>Buff Sekuwa</h3>
+        <p>Traditional Kathmandu-style buff sekuwa. Spicy, juicy, smoky and bold.</p>
+
+        <select id="buffOption">
+          <option value="300">Plate - Rs. 300</option>
+          <option value="600">Half Kilo - Rs. 600</option>
+          <option value="1100">One Kilo - Rs. 1100</option>
+        </select>
+
+        <button onclick="addSelectedItem('Buff Sekuwa', 'buffOption')">Add To Cart</button>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="images/chicken-sekuwa.jpg" alt="Chicken Sekuwa">
+      <div class="menu-content">
+        <h3>Chicken Sekuwa</h3>
+        <p>Tender chicken sekuwa grilled fresh with house spices and signature achaar.</p>
+
+        <select id="chickenOption">
+          <option value="280">Plate - Rs. 280</option>
+          <option value="550">Half Kilo - Rs. 550</option>
+          <option value="1000">One Kilo - Rs. 1000</option>
+        </select>
+
+        <button onclick="addSelectedItem('Chicken Sekuwa', 'chickenOption')">Add To Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section booking-section" id="booking">
+  <div class="section-title">
+    <p>Reserve Your Table</p>
+    <h2>Booking</h2>
+  </div>
+
+  <form class="booking-form" onsubmit="bookTable(event)">
+    <input type="text" placeholder="Full Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="date" required>
+    <input type="time" required>
+    <input type="number" placeholder="Guests" min="1" required>
+    <button type="submit">Book Table</button>
+  </form>
+</section>
+
+<section class="section checkout-section" id="checkout">
+  <div class="section-title">
+    <p>Complete Your Order</p>
+    <h2>Checkout</h2>
+  </div>
+
+  <form class="checkout-form" onsubmit="placeOrder(event)">
+    <input type="text" id="customerName" placeholder="Full Name" required>
+    <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+    <input type="text" id="customerAddress" placeholder="Delivery Address" required>
+
+    <select id="paymentMethod" required>
+      <option value="">Payment Method</option>
+      <option>Cash On Delivery</option>
+      <option>eSewa</option>
+      <option>Khalti</option>
+    </select>
+
+    <textarea id="orderNotes" placeholder="Order Notes"></textarea>
+
+    <div class="checkout-summary">
+      <h3>Your Order</h3>
+      <div id="checkoutItems">Your cart is empty.</div>
+      <strong>Total: Rs. <span id="checkoutTotal">0</span></strong>
+    </div>
+
+    <button type="submit">Place Order</button>
+  </form>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="contact-card">
+    <p class="gold">Visit Us</p>
+    <h2>KIM'S Sekuwa</h2>
+    <p>Golfutar, Kathmandu, Nepal</p>
+    <p>Phone: +977 98XXXXXXXX</p>
+    <p>Email: hello@kimssekuwa.com</p>
+    <p>Open: 11:00 AM – 10:00 PM</p>
+
+    <p id="distanceText">Allow location access to see your distance from KIM'S.</p>
+
+    <button onclick="getRoute()">Get Directions</button>
+  </div>
+
+  <iframe
+    src="https://www.google.com/maps?q=Golfutar,Kathmandu,Nepal&output=embed"
+    loading="lazy">
+  </iframe>
+</section>
+
+<footer>
+  <h3>KIM'S</h3>
+  <p>Fire-Grilled Sekuwa. Legendary Achaar.</p>
+  <p>© 2026 KIM'S. All Rights Reserved.</p>
+</footer>
+
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button onclick="toggleCart()">×</button>
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="cart-total">
+    Total: Rs. <span id="cartTotal">0</span>
+  </div>
+
+  <a href="#checkout" class="checkout-btn" onclick="toggleCart()">Checkout</a>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
